@@ -35,7 +35,7 @@ class DateDiff(FlowLauncher):
                 diff = (to_dt - from_dt).days
                 return [
                     {
-                        "Title": diff,
+                        "Title": str(diff),
                         "SubTitle": f"{from_dt:%Y-%m-%d} → {to_dt:%Y-%m-%d}",
                         "IcoPath": "Images/app.png",
                     }
