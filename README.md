@@ -6,6 +6,9 @@ A FlowLauncher plugin written in python for calculating date diff
 
 ### Usage
 #### Date Diff
+
+<img src="https://s2.loli.net/2024/03/05/SCxfmTuF7Hy2EQW.png" width="400">
+
 ```
 dd [FROM_DATE] TO_DATE
 ```
@@ -26,6 +29,9 @@ dd 2024/01/01 2025/01/01
 dd 2024-01-01 2025-01-01
 ```
 #### Date Calculating
+
+<img src="https://s2.loli.net/2024/03/05/rmPS2f56gYRtUMn.png" width="400">
+
 ```
 dd [FROM_DATE] DATE_DELTA
 ```
@@ -40,5 +46,6 @@ e.g.
 dd +4d
 dd +3m4d
 dd -1y2m3w4d
-dd 20240101 +1y
+dd 20240101 +1y2m3w4d
+dd 2024/01/01 +1y4d
 ```
