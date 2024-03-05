@@ -24,8 +24,10 @@ class DateDiff(FlowLauncher):
             to_given = args[1]
             from_given = args[0]
             from_dt = datetime.strptime(f"{from_given:08}", "%Y%m%d")
-        to_dt = datetime.strptime(f"{to_given:08}", "%Y%m%d")
-
+        try:
+            to_dt = datetime.strptime(f"{to_given:08}", "%Y%m%d")
+        except ValueError:
+            return
         diff = (to_dt - from_dt).days
         return [
             {
