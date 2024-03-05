@@ -28,7 +28,10 @@ class DateDiff(FlowLauncher):
 
             # dd [date] {+|-}1y2m3w4d
             if to_given.startswith("+") or to_given.startswith("-"):
-                from_dt = datetime.strptime(from_given, fmt)
+                try:
+                    from_dt = datetime.strptime(from_given, fmt)
+                except ValueError:
+                    continue
                 delta_groups = re.search(
                     r"(?P<operator>[-+])(?P<year>\d+y)?(?P<month>\d+m)?(?P<week>\d+w)?(?P<day>\d+d)?",
                     to_given,
