@@ -19,13 +19,13 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - name: get version
+      - name: Get version
         id: version
         uses: notiz-dev/github-action-json-property@release
         with:
           path: 'plugin.json'
           prop_path: 'Version'
-      - run: echo ${{steps.version.outputs.prop}}
+      - run: echo version ${{steps.version.outputs.prop}}
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
