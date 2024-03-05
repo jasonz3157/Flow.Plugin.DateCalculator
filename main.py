@@ -57,13 +57,16 @@ class DateDiff(FlowLauncher):
                         else 0
                     ),
                 )
-                return [
-                    {
-                        "Title": f"{target_dt:%Y-%m-%d}",
-                        "SubTitle": f"{from_dt:%Y-%m-%d} {to_given}",
-                        "IcoPath": "Images/app.png",
-                    }
-                ]
+                if target_dt == from_dt:
+                    return
+                else:
+                    return [
+                        {
+                            "Title": f"{target_dt:%Y-%m-%d}",
+                            "SubTitle": f"{from_dt:%Y-%m-%d} {to_given}",
+                            "IcoPath": "Images/app.png",
+                        }
+                    ]
             # dd [from] to
             else:
                 try:
