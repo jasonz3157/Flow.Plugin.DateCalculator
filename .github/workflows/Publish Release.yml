@@ -29,7 +29,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install flowlauncher -t ./lib
+          pip install -r requirements.txt -t ./lib
+          ls -l
           zip -r Flow.Launcher.Plugin.DateDiffPy.zip . -x '*.git*'
       - name: Publish
         if: success()
