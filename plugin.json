@@ -1,0 +1,12 @@
+{
+    "ID": "b6a9192c-6646-4c77-bc6b-be4f8195ffda",
+    "ActionKeyword": "dd",
+    "Name": "Date Diff (Python)",
+    "Description": "Difference between two dates",
+    "Author": "jasonz3157",
+    "Version": "0.0.1",
+    "Language": "python",
+    "Website": "https://github.com/jasonz3157/Flow.Launcher.Plugin.DateDiffPy",
+    "IcoPath": "Images\\app.png",
+    "ExecuteFileName": "main.py"
+}
