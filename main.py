@@ -14,7 +14,7 @@ from dateutil.relativedelta import *
 from flowlauncher import FlowLauncher
 
 
-class DateDiff(FlowLauncher):
+class DateCalculator(FlowLauncher):
     def query(self, arguments: str):
         if not arguments:
             return
@@ -90,4 +90,4 @@ class DateDiff(FlowLauncher):
 
 
 if __name__ == "__main__":
-    DateDiff()
+    DateCalculator()
