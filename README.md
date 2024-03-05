@@ -11,9 +11,9 @@ dd [FROM_DATE] TO_DATE
 If *FROM_DATE* is not provided, today's date will be used.
 
 Supported date formats:
-- `YYYYmmdd`
-- `YYYY/mm/dd`
-- `YYYY-mm-dd`
+- `YYYYMMDD`
+- `YYYY/MM/DD`
+- `YYYY-MM-DD`
 
 e.g.
 ```
