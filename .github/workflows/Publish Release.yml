@@ -2,24 +2,25 @@ name: Publish Release
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ master ]
-    paths-ignore:
-      - .github/workflows/*
-      - '**.md'
+  # push:
+  #   branches: [ master ]
+  #   paths-ignore:
+  #     - .github/workflows/*
+  #     - '**.md'
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     env:
-      python_ver: 3.9
+      zip_file_name: 'Flow.Launcher.Plugin.DateCalculator.zip'
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: '3.11'
+          architecture: 'x64'
       - name: Get version
         id: version
         uses: notiz-dev/github-action-json-property@release
@@ -32,12 +33,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt -t ./lib
           ls -l
-          zip -r Flow.Launcher.Plugin.DateDiffPy.zip . -x '*.git*'
+          zip -r ${{env.zip_file_name}} . -x '*.git*'
       - name: Publish
         if: success()
         uses: softprops/action-gh-release@v1
         with:
-          files: 'Flow.Launcher.Plugin.DateDiffPy.zip'
+          files: ${{env.zip_file_name}}
           tag_name: "v${{steps.version.outputs.prop}}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
