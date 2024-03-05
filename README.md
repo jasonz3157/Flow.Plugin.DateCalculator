@@ -31,14 +31,13 @@ dd [FROM_DATE] DATE_DELTA
 ```
 If *FROM_DATE* is not provided, today's date will be used.
 
-DATE_DELTA should be composed of an *OPERATOR* and a *DATE_RANGE*.
+*DATE_DELTA* should be composed of an *OPERATOR* and a *DATE_RANGE*.
 - *OPERATOR*: `+` `-`
-- *DATE_RANGE*: `ny` `nm` `nw` `nd` (n is an integer). If only an integer is given, it will be treated as `d`.
+- *DATE_RANGE*: `ny` `nm` `nw` `nd` (n is an integer).
 
 e.g.
 ```
-dd -12
-dd +12d
+dd +4d
 dd +3m4d
 dd -1y2m3w4d
 dd 20240101 +1y

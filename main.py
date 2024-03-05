@@ -30,7 +30,7 @@ class DateDiff(FlowLauncher):
             if to_given.startswith("+") or to_given.startswith("-"):
                 from_dt = datetime.strptime(from_given, fmt)
                 delta_groups = re.search(
-                    r"(?P<operator>[-+])(?P<year>\d+y)?(?P<month>\d+m)?(?P<week>\d+w)?(?P<day>\d+d?)?",
+                    r"(?P<operator>[-+])(?P<year>\d+y)?(?P<month>\d+m)?(?P<week>\d+w)?(?P<day>\d+d)?",
                     to_given,
                     flags=re.IGNORECASE,
                 )
