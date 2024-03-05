@@ -16,7 +16,7 @@ class DateDiff(FlowLauncher):
     def query(self, arguments: str):
         if not arguments:
             return
-        args = arguments.strip().split(" ")
+        args = [str(_) for _ in arguments.strip().split(" ")]
 
         if len(args) == 1:
             to_given = args[0]
@@ -41,6 +41,7 @@ class DateDiff(FlowLauncher):
                     }
                 ]
         return
+
 
 if __name__ == "__main__":
     DateDiff()
