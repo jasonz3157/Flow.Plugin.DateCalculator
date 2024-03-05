@@ -18,14 +18,11 @@ class DateDiff(FlowLauncher):
             return
         args = [str(_) for _ in arguments.strip().split(" ")]
 
-        if len(args) == 1:
-            to_given = args[0]
-            from_given = datetime.strftime(datetime.now(), "%Y%m%d")
-        else:
-            to_given = args[1]
-            from_given = args[0]
-
         for fmt in ["%Y%m%d", "%Y-%m-%d", "%Y/%m/%d"]:
+            to_given = args[0] if len(args) == 1 else args[1]
+            from_given = (
+                datetime.strftime(datetime.now(), fmt) if len(args) == 1 else args[0]
+            )
             try:
                 from_dt = datetime.strptime(from_given, fmt)
                 to_dt = datetime.strptime(to_given, fmt)
