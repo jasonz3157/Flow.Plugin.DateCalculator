@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import re
 import sys
 from datetime import datetime
 
@@ -9,6 +10,7 @@ sys.path.append(parent_folder_path)
 sys.path.append(os.path.join(parent_folder_path, "lib"))
 sys.path.append(os.path.join(parent_folder_path, "plugin"))
 
+from dateutil.relativedelta import *
 from flowlauncher import FlowLauncher
 
 
@@ -23,20 +25,44 @@ class DateDiff(FlowLauncher):
             from_given = (
                 datetime.strftime(datetime.now(), fmt) if len(args) == 1 else args[0]
             )
-            try:
+
+            # dd [date] {+|-}1y2m3w4d
+            if to_given.startswith("+") or to_given.startswith("-"):
                 from_dt = datetime.strptime(from_given, fmt)
-                to_dt = datetime.strptime(to_given, fmt)
-            except ValueError:
-                continue
-            else:
-                diff = (to_dt - from_dt).days
+                delta_groups = re.search(
+                    r"(?P<operation>[-+])(?P<year>\d+y)?(?P<month>\d+m)?(?P<week>\d+w)?(?P<day>\d+d?)?",
+                    to_given,
+                    flags=re.IGNORECASE,
+                )
+                target_dt = from_dt + relativedelta(
+                    years=int(delta_groups.group("year").rstrip("y") or 0),
+                    months=int(delta_groups.group("month").rstrip("m") or 0),
+                    weeks=int(delta_groups.group("week").rstrip("w") or 0),
+                    days=int(delta_groups.group("day").rstrip("d") or 0),
+                )
                 return [
                     {
-                        "Title": str(diff),
-                        "SubTitle": f"{from_dt:%Y-%m-%d} → {to_dt:%Y-%m-%d}",
+                        "Title": f"{target_dt:%Y-%m-%d}",
+                        "SubTitle": f"{from_dt:%Y-%m-%d} {to_given}",
                         "IcoPath": "Images/app.png",
                     }
                 ]
+            # dd [from] to
+            else:
+                try:
+                    from_dt = datetime.strptime(from_given, fmt)
+                    to_dt = datetime.strptime(to_given, fmt)
+                except ValueError:
+                    continue
+                else:
+                    diff = (to_dt - from_dt).days
+                    return [
+                        {
+                            "Title": str(diff),
+                            "SubTitle": f"{from_dt:%Y-%m-%d} → {to_dt:%Y-%m-%d}",
+                            "IcoPath": "Images/app.png",
+                        }
+                    ]
         return
 
 
