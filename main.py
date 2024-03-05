@@ -35,10 +35,26 @@ class DateDiff(FlowLauncher):
                     flags=re.IGNORECASE,
                 )
                 target_dt = from_dt + relativedelta(
-                    years=int(delta_groups.group("year").rstrip("y") or 0),
-                    months=int(delta_groups.group("month").rstrip("m") or 0),
-                    weeks=int(delta_groups.group("week").rstrip("w") or 0),
-                    days=int(delta_groups.group("day").rstrip("d") or 0),
+                    years=(
+                        int(delta_groups.group("year").rstrip("y"))
+                        if delta_groups.group("year")
+                        else 0
+                    ),
+                    months=(
+                        int(delta_groups.group("month").rstrip("m"))
+                        if delta_groups.group("month")
+                        else 0
+                    ),
+                    weeks=(
+                        int(delta_groups.group("week").rstrip("w"))
+                        if delta_groups.group("week")
+                        else 0
+                    ),
+                    days=(
+                        int(delta_groups.group("day").rstrip("d"))
+                        if delta_groups.group("day")
+                        else 0
+                    ),
                 )
                 return [
                     {
