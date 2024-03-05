@@ -14,9 +14,9 @@ from flowlauncher import FlowLauncher
 
 class DateDiff(FlowLauncher):
     def query(self, arguments: str):
-        args = arguments.strip().split(" ")
-        if not args:
+        if not arguments:
             return
+        args = arguments.strip().split(" ")
         if len(args) == 1:
             to_given = args[0]
             from_dt = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
