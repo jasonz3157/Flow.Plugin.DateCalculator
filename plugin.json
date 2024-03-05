@@ -4,7 +4,7 @@
     "Name": "Date Diff (Python)",
     "Description": "Difference between two dates",
     "Author": "jasonz3157",
-    "Version": "0.0.6",
+    "Version": "0.0.8",
     "Language": "python",
     "Website": "https://github.com/jasonz3157/Flow.Launcher.Plugin.DateDiffPy",
     "IcoPath": "Images\\app.png",

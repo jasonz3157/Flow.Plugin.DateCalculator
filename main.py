@@ -25,20 +25,22 @@ class DateDiff(FlowLauncher):
             to_given = args[1]
             from_given = args[0]
 
-        try:
-            from_dt = datetime.strptime(from_given, "%Y%m%d")
-            to_dt = datetime.strptime(to_given, "%Y%m%d")
-        except ValueError:
-            return
-        diff = (to_dt - from_dt).days
-        return [
-            {
-                "Title": f"{diff}d ",
-                "SubTitle": f"{from_dt:%Y%m%d} → {to_dt:%Y%m%d}",
-                "IcoPath": "Images/app.png",
-            }
-        ]
-
+        for fmt in ["%Y%m%d", "%Y-%m-%d", "%Y/%m/%d"]:
+            try:
+                from_dt = datetime.strptime(from_given, fmt)
+                to_dt = datetime.strptime(to_given, fmt)
+            except ValueError:
+                continue
+            else:
+                diff = (to_dt - from_dt).days
+                return [
+                    {
+                        "Title": diff,
+                        "SubTitle": f"{from_dt:%Y-%m-%d} → {to_dt:%Y-%m-%d}",
+                        "IcoPath": "Images/app.png",
+                    }
+                ]
+        return
 
 if __name__ == "__main__":
     DateDiff()
