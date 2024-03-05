@@ -17,22 +17,24 @@ class DateDiff(FlowLauncher):
         if not arguments:
             return
         args = arguments.strip().split(" ")
+
         if len(args) == 1:
             to_given = args[0]
-            from_dt = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+            from_given = datetime.strftime(datetime.now(), "%Y%m%d")
         else:
             to_given = args[1]
             from_given = args[0]
-            from_dt = datetime.strptime(f"{from_given:08}", "%Y%m%d")
+
         try:
-            to_dt = datetime.strptime(f"{to_given:08}", "%Y%m%d")
+            from_dt = datetime.strptime(from_given, "%Y%m%d")
+            to_dt = datetime.strptime(to_given, "%Y%m%d")
         except ValueError:
             return
         diff = (to_dt - from_dt).days
         return [
             {
-                "Title": f"{diff} Days",
-                "SubTitle": f"From {from_dt:%Y%m%d} to {to_dt:%Y%m%d}",
+                "Title": f"{diff}d ",
+                "SubTitle": f"{from_dt:%Y%m%d} → {to_dt:%Y%m%d}",
                 "IcoPath": "Images/app.png",
             }
         ]
