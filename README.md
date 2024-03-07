@@ -7,10 +7,10 @@ A [FlowLauncher](https://github.com/Flow-Launcher/Flow.Launcher) plugin written 
 ### Usage
 #### Diff
 
-<img src="https://s2.loli.net/2024/03/05/SCxfmTuF7Hy2EQW.png" width="400">
+<img src="https://s2.loli.net/2024/03/07/oxOzmCsUMZ2l1Ja.png" width="400">
 
 ```
-dd [FROM_DATE] TO_DATE
+dc [FROM_DATE] TO_DATE
 ```
 If *FROM_DATE* is not provided, today's date will be used.
 
@@ -21,19 +21,19 @@ Supported date formats:
 
 e.g.
 ```
-dd 20250101
-dd 2025/01/01
-dd 2025-01-01
-dd 20240101 20250101
-dd 2024/01/01 2025/01/01
-dd 2024-01-01 2025-01-01
+dc 20250101
+dc 2025/01/01
+dc 2025-01-01
+dc 20240101 20250101
+dc 2024/01/01 2025/01/01
+dc 2024-01-01 2025-01-01
 ```
 #### Calculating
 
-<img src="https://s2.loli.net/2024/03/05/rmPS2f56gYRtUMn.png" width="400">
+<img src="https://s2.loli.net/2024/03/07/dOLto5xiRj6I9JB.png" width="400">
 
 ```
-dd [FROM_DATE] DATE_DELTA
+dc [FROM_DATE] DATE_DELTA
 ```
 If *FROM_DATE* is not provided, today's date will be used.
 
@@ -43,9 +43,9 @@ If *FROM_DATE* is not provided, today's date will be used.
 
 e.g.
 ```
-dd +4d
-dd +3m4d
-dd -1y2m3w4d
-dd 20240101 +1y2m3w4d
-dd 2024/01/01 +1y4d
+dc +4d
+dc +3m4d
+dc -1y2m3w4d
+dc 20240101 +2m4d
+dc 2024/01/01 -1y4d
 ```
