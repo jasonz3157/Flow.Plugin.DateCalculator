@@ -133,7 +133,7 @@ class DateCalculator(FlowLauncher):
         return [
             {
                 "Title": diff,
-                "SubTitle": f"{now:%x %X} → {to_date:%x %X}",
+                "SubTitle": f"{from_date:%x %X} → {to_date:%x %X}",
                 "IcoPath": "Images/app.png",
             }
         ]
