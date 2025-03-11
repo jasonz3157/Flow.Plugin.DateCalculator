@@ -14,11 +14,6 @@ dc [FROM_DATE] TO_DATE
 ```
 If *FROM_DATE* is not provided, today's date will be used.
 
-Supported date formats:
-- `YYYYMMDD`
-- `YYYY/MM/DD`
-- `YYYY-MM-DD`
-
 e.g.
 ```
 dc 20250101
@@ -30,22 +25,18 @@ dc 2024-01-01 2025-01-01
 ```
 #### Calculating
 
-<img src="https://s2.loli.net/2024/03/07/dOLto5xiRj6I9JB.png" width="400">
-
 ```
-dc [FROM_DATE] DATE_DELTA
+dc [FROM_DATE] {+|-}{TIME_DELTA}
 ```
-If *FROM_DATE* is not provided, today's date will be used.
-
-*DATE_DELTA* should be composed of an *OPERATOR* and a *DATE_RANGE*:
-- *OPERATOR*: `+` `-`
-- *DATE_RANGE*: `ny` `nm` `nw` `nd` (n is an integer).
-
 e.g.
 ```
-dc +4d
-dc +3m4d
-dc -1y2m3w4d
-dc 20240101 +2m4d
-dc 2024/01/01 -1y4d
+dc +181d
+dc -1y2m3d
+dc 2025/03/11 +366H
+dc "Oct. 11, 2025"
+dc "Mar. 11, 2025" -1y
 ```
+![calculate01](https://raw.githubusercontent.com/jasonz3157/Flow.Plugin.DateCalculator/blob/master/Images/calculate01.png?raw=true | width=100)
+
+- If *FROM_DATE* is not provided, today's date will be used.
+- If *TIME_DELTA* contains space, please wrap it with quotes.
