@@ -29,6 +29,7 @@ e.g.
 dc 20250101
 dc 2025/01/01 %m
 dc 2025/01/01
+dc "Oct. 11, 2025"
 dc "Oct. 10, 2025" %H
 dc 20240101 2025-01-01
 dc 2024/01/01 "Oct 11 2024"
@@ -39,6 +40,8 @@ dc 2024/01/01 "Oct 11 2024"
 <img src="https://github.com/jasonz3157/Flow.Plugin.DateCalculator/blob/master/Images/diff02.png?raw=true" width="400">
 
 <img src="https://github.com/jasonz3157/Flow.Plugin.DateCalculator/blob/master/Images/diff03.png?raw=true" width="400">
+
+<img src="https://github.com/jasonz3157/Flow.Plugin.DateCalculator/blob/master/Images/calculate04.png?raw=true" width="400">
 
 <img src="https://github.com/jasonz3157/Flow.Plugin.DateCalculator/blob/master/Images/diff04.png?raw=true" width="400">
 
@@ -59,7 +62,6 @@ e.g.
 dc +181d
 dc -1y2m3d
 dc 2025/03/11 +366H
-dc "Oct. 11, 2025"
 dc "Mar. 11, 2025" -1y
 ```
 <img src="https://github.com/jasonz3157/Flow.Plugin.DateCalculator/blob/master/Images/calculate01.png?raw=true" width="400">
@@ -67,7 +69,5 @@ dc "Mar. 11, 2025" -1y
 <img src="https://github.com/jasonz3157/Flow.Plugin.DateCalculator/blob/master/Images/calculate02.png?raw=true" width="400">
 
 <img src="https://github.com/jasonz3157/Flow.Plugin.DateCalculator/blob/master/Images/calculate03.png?raw=true" width="400">
-
-<img src="https://github.com/jasonz3157/Flow.Plugin.DateCalculator/blob/master/Images/calculate04.png?raw=true" width="400">
 
 <img src="https://github.com/jasonz3157/Flow.Plugin.DateCalculator/blob/master/Images/calculate05.png?raw=true" width="400">
