@@ -36,7 +36,7 @@ dc 2025/03/11 +366H
 dc "Oct. 11, 2025"
 dc "Mar. 11, 2025" -1y
 ```
-![calculate01](https://raw.githubusercontent.com/jasonz3157/Flow.Plugin.DateCalculator/blob/master/Images/calculate01.png?raw=true | width=100)
+![.png](Images/calculate01.png | width=100)
 
 - If *FROM_DATE* is not provided, today's date will be used.
 - If *TIME_DELTA* contains space, please wrap it with quotes.
