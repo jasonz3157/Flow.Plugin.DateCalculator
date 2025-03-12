@@ -1,0 +1,12 @@
+#$schema: https://www.flowlauncher.com/schemas/settings-template.schema.json
+
+body:
+  - type: dropdown
+    attributes:
+      name: what_first
+      label: Interpret the first value in ambiguous 3-integer date
+      description: "'month' for mm/dd/yyyy, 'day' for dd/mm/yyyy"
+      defaultValue: month
+      options:
+        - month
+        - day
