@@ -15,7 +15,7 @@ A [FlowLauncher](https://github.com/Flow-Launcher/Flow.Launcher) plugin written 
 dc [FROM_DATE] TO_DATE [%UNIT]
 ```
 - If *FROM_DATE* is not provided, today's date will be used.
-- If *FROM_DATE* contains space, please wrap it with quotes.
+- If *\*_DATE* contains space, please wrap it with quotes.
 - *%UNIT* is optional. *UNIT* can be one of the following:
     - `s`/`S`: seconds.
     - `M`: minutes.
@@ -71,3 +71,11 @@ dc "Mar. 11, 2025" -1y
 <img src="https://github.com/jasonz3157/Flow.Plugin.DateCalculator/blob/master/Images/calculate03.png?raw=true" width="400">
 
 <img src="https://github.com/jasonz3157/Flow.Plugin.DateCalculator/blob/master/Images/calculate05.png?raw=true" width="400">
+
+#### Settings
+
+<img src="https://github.com/jasonz3157/Flow.Plugin.DateCalculator/blob/master/Images/settings01.png?raw=true" width="700">
+
+<img src="https://github.com/jasonz3157/Flow.Plugin.DateCalculator/blob/master/Images/monthfirst.png?raw=true" width="400">
+
+<img src="https://github.com/jasonz3157/Flow.Plugin.DateCalculator/blob/master/Images/dayfirst.png?raw=true" width="400">

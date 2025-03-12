@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import json
 import os
 import re
 import sys
@@ -19,6 +20,10 @@ from flowlauncher import FlowLauncher  # noqa: E402
 
 
 class DateCalculator(FlowLauncher):
+    @property
+    def settings(self):
+        return json.loads(sys.argv[1])["settings"]
+
     def query(self, arguments: str):
         if not arguments:
             return
@@ -33,12 +38,14 @@ class DateCalculator(FlowLauncher):
             ctypes.windll.kernel32.GetUserDefaultUILanguage()
         ]
         locale.setlocale(locale.LC_ALL, _locale)
+
+        day_first = True if self.settings["what_first"] == "day" else False
         for arg in args:
             if arg.startswith(("-", "+")):
                 # Calculating mode
                 time_delta = arg
                 try:
-                    from_dt = parse(args[0])
+                    from_dt = parse(args[0], dayfirst=day_first)
                 except Exception:
                     from_dt = now
                 delta_groups = re.search(
@@ -104,11 +111,11 @@ class DateCalculator(FlowLauncher):
             time_fmt = "d"
 
         try:
-            to_date = parse(args[-1], default=now)
+            to_date = parse(args[-1], default=now, dayfirst=day_first)
         except Exception:
             return
         try:
-            from_date = parse(args[-2], default=now)
+            from_date = parse(args[-2], default=now, dayfirst=day_first)
         except Exception:
             from_date = now
 
