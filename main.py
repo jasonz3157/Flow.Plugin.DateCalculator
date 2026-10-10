@@ -136,7 +136,7 @@ class DateCalculator(FlowLauncher):
         elif time_fmt in ["M"]:
             diff = f"{delta_diff.days * 24 * 60} minutes"
         elif time_fmt in ["s", "S"]:
-            diff = f"{delta_diff.total_seconds} seconds"
+            diff = f"{delta_diff.total_seconds()} seconds"
         return [
             {
                 "Title": diff,

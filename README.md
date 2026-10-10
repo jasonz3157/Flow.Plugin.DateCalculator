@@ -79,3 +79,17 @@ dc "Mar. 11, 2025" -1y
 <img src="https://github.com/jasonz3157/Flow.Plugin.DateCalculator/blob/master/Images/monthfirst.png?raw=true" width="400">
 
 <img src="https://github.com/jasonz3157/Flow.Plugin.DateCalculator/blob/master/Images/dayfirst.png?raw=true" width="400">
+
+### 测试
+
+使用标准库 `unittest` 运行回归测试, 无需额外测试框架. 在仓库根目录执行以下命令 (Windows PowerShell):
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install --index-url https://mirrors.ustc.edu.cn/pypi/simple -r requirements.txt
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+```
+
+Linux/macOS 上将 `.\.venv\Scripts\python.exe` 替换为 `.venv/bin/python`.
+
+秒数回归测试调用实际的 `DateCalculator.query()` 方法, 覆盖 `%s` 和 `%S` 的正数、负数、零、跨日和小数秒输出. 测试替换 Windows 语言接口和 locale 设置, 可在未安装 Flow Launcher 的环境中运行.
